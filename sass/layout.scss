@@ -6,7 +6,6 @@
 html {
   box-sizing: border-box;
 }
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -14,6 +13,7 @@ html {
 /*
  * Global layout stuff
  */
+
 body {
   color: #545149;
   background-color: #f4f1ec;
@@ -31,17 +31,16 @@ main {
   text-align: center;
 }
 
-@media (min-width: 1025px) {
-  /* big landscape tablets, laptops, and desktops */
+@media (min-width:1025px) { 
+  /* big landscape tablets, laptops, and desktops */ 
   body {
     display: flex;
     flex-direction: row;
   }
-
   .box2 {
     margin: 2%;
-  }
 
+  }
   .container {
     margin-top: 140px;
   }

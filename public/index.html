@@ -6,24 +6,92 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" type = "text/css" />
+    <link href = "https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" type = "text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
+    <link rel = "stylesheet" href = "/styles/nav.css" type = "text/css" />
+    <link rel = "stylesheet" href = "/styles/header.css" type = "text/css" />
+    <link rel = "stylesheet" href = "/styles/new-tweet.css" type = "text/css" />
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
+    <div class = "box1">
     <nav>
-      <span>tweeter</span>
+      <span>Tweeter</span>
+      <div>
+        <div>Write a new tweet</div>
+          <div>
+            <i class="fas fa-angle-double-down"></i>
+          </div>
+      </div>      
     </nav>
-
+  </div>
+    <div class = "box2">
+    <header>
+      <div>
+          <img src="/images/profile-hex.png"> 
+      </div>
+      <div>
+          <h2>Amy Mansell</h2>
+      </div>
+  </header>
+</div>
     <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+  <main class="container" id = "main-container">
+    <section class="new-tweet">
+      <div class = "errors hidden" id ="errors">
+        <i class="fas fa-exclamation-triangle"></i>
+      </div>
+    <form action = "/tweets" method = POST id ="submit-tweet">
+      <label for="tweet-text">What are you humming about?</label>
+      <textarea name="text" id="tweet-text" placeholder=" "></textarea>
+      <div>
+      <button type="submit" id ="tweet-submit">Tweet</button>
+      <output name="counter" class="counter" for="tweet-text">140</output>
+      </div>
+    </form>
+    
+    </section>
+    <br/>
+    <section class = "tweets" id = "tweets-container"> 
+    <article class="tweet" id = "tweets-container">
+    <header>
+      <img src="/images/profile1.jpg">
+      <span class = "profile-name"> Rhoda Jacobs </span>
+      <p class = "tweeter-handle">@Mrs Jacobs</p>
+    </header>
+      <span>Tweeter was created in March 2006 by Jack Dorsey, Evan Williams, Biz Stone, and Noah Glass and launched in July 2006
+      </span>
+      <footer>
+        <p class = "since">2021-11-27
+        </p>
+        <p class = "tweet-icons"> 
+        <i class="fas fa-flag"></i>
+        <i class="fas fa-retweet"></i>
+        <i class="fas fa-heart"></i>
+        </p>
+      </footer>
+    </article>
+  </section>
+  </main>
   </body>
 </html>
+<script> 
+  const post_date = document.querySelectorAll(".since").forEach((post_date) =>{;
+  post_date.textContent = timeago.format(post_date.textContent); 
+  });
+
+</script>
